@@ -29,5 +29,5 @@ public VipM_OnInitModules() {
     }
 
     SetHookChainArg(4, ATYPE_FLOAT, damage);
-    return HC_SUPERCEDE;
+    return HC_CONTINUE;
 }
