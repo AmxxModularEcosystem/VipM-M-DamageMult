@@ -19,7 +19,7 @@ public VipM_OnInitModules() {
     RegisterHookChain(RG_CBasePlayer_TakeDamage, "@OnPlayerTakeDamage", .post = false);
 }
 
-@OnPlayerFallDamage(const victimIndex, inflictorIndex, attackerIndex, Float:damage, damageType) {
+@OnPlayerTakeDamage(const victimIndex, inflictorIndex, attackerIndex, Float:damage, damageType) {
     if (VipM_Modules_HasModule(MODULE_NAME, victimIndex)) {
         damage *= VipM_Params_GetFloat(VipM_Modules_GetParams(MODULE_NAME, victimIndex), "Given", 1.0);
     }
