@@ -20,11 +20,11 @@ public VipM_OnInitModules() {
 }
 
 @OnPlayerTakeDamage(const victimIndex, inflictorIndex, attackerIndex, Float:damage, damageType) {
-    if (VipM_Modules_HasModule(MODULE_NAME, victimIndex)) {
+    if (is_user_alive(victimIndex) && VipM_Modules_HasModule(MODULE_NAME, victimIndex)) {
         damage *= VipM_Params_GetFloat(VipM_Modules_GetParams(MODULE_NAME, victimIndex), "Given", 1.0);
     }
 
-    if (VipM_Modules_HasModule(MODULE_NAME, attackerIndex)) {
+    if (is_user_alive(attackerIndex) && VipM_Modules_HasModule(MODULE_NAME, attackerIndex)) {
         damage *= VipM_Params_GetFloat(VipM_Modules_GetParams(MODULE_NAME, attackerIndex), "Taken", 1.0);
     }
 
